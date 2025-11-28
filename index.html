@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Закладки — ДЗ</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash.debounce@4.0.8/index.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/nanoid@3.3.6/dist/nanoid.umd.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Закладки</h1>
+
+  <form id="bookmarkForm">
+    <input type="text" name="title" placeholder="Назва" required>
+    <input type="url" name="url" placeholder="https://site.com" required>
+    <button type="submit">Додати</button>
+  </form>
+
+  <input type="text" id="search" placeholder="Пошук...">
+
+  <ul id="list"></ul>
+
+
+  <script id="bookmark-template" type="text/x-handlebars-template">
+    {{#each this}}
+      <li data-id="{{id}}">
+        <a href="{{url}}" target="_blank">{{title}}</a>
+        <button class="delete">×</button>
+      </li>
+    {{/each}}
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
